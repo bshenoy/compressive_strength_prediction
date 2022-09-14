@@ -1,11 +1,28 @@
 from flask import Flask
+from cement.logger import logging
+from cement.exception import CementException
+import sys, os
 
-app = Flask(__name__)
+def main():
+    try:
+        logging.info("yhhhh")
+        # raise Exception("we are tseting")
+        raise CementException(e, sys) from e
+    except Exception as e:
+        cement = CementException(e, sys)
+        logging.info(cement.error_message)
+    return "ggggga"
 
 
-@app.route('/', methods=['POST', 'GET'])
-def welcome():
-    return "hello"
 
-if __name__=="__main__":
-    app.run()
+
+
+# app = Flask(__name__)
+
+
+# @app.route('/', methods=['POST', 'GET'])
+# def welcome():
+#     return "hello"
+
+# if __name__=="__main__":
+#     app.run()
